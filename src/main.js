@@ -1,6 +1,8 @@
 import './css/reset.css'
 import './css/main.css'
 
+import {getQuoteAndAuthor} from "./services/api.js";
+
 
 document.querySelector('#app').innerHTML = `
   <header id="quote" class="quote-section">
@@ -41,3 +43,7 @@ document.querySelector('#app').innerHTML = `
 </section>
 `
 
+// call the getQuoteAndAuthor function and store the value into a variable
+const { quoteText, quoteAuthor } = await getQuoteAndAuthor();
+
+console.log(quoteText, quoteAuthor)
