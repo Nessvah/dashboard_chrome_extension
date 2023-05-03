@@ -43,7 +43,15 @@ document.querySelector('#app').innerHTML = `
 </section>
 `
 
-// call the getQuoteAndAuthor function and store the value into a variable
-const { quoteText, quoteAuthor } = await getQuoteAndAuthor();
+// we need to wait for the promise to resolved before proceeding
+async function awaitPromise(){
+    const quote = await getQuoteAndAuthor();
 
-console.log(quoteText, quoteAuthor)
+    if (quote.quoteAuthor === null){
+        console.log("Houve um erro")
+    } else {
+        console.log(quote)
+    }
+}
+
+awaitPromise().catch((e) => console.error('Erro'));
