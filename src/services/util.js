@@ -14,3 +14,8 @@ export function extractHourAndMin(dateStr){
 }
 
 
+
+export function renderQuote(quote, author) {
+    document.getElementById('quote').textContent = quote;
+    document.getElementById('author').textContent = author;
+}

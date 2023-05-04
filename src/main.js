@@ -2,12 +2,13 @@ import './css/reset.css'
 import './css/main.css'
 
 import {getQuoteAndAuthor, getWorldTime} from "./services/api.js";
+import {renderQuote} from "./services/util.js";
 
 
 function renderMainPage(){
 
     document.querySelector('#app').innerHTML = `
-  <header id="quote" class="quote-section">
+  <header class="quote-section">
   <div class="quote__text" id="quote">quote</div>
   <div class="quote__author" id="author">author</div>
 </header>
@@ -51,6 +52,7 @@ renderMainPage();
 
 // we need to wait for the promise to resolve before proceeding
 // and handle any errors or null values that might arise
+
 async function awaitPromise(){
     const quote = await getQuoteAndAuthor();
 
@@ -58,10 +60,8 @@ async function awaitPromise(){
         console.log("Fields undefined/null")
     } else {
         const { quoteAuthor, quoteText } = quote
-       const quote=  document.getElementById('quote');
-        const author = document.getElementById('author');
 
-        console.log(quote, author)
+        renderQuote(quoteText, quoteAuthor);
     }
 }
 
