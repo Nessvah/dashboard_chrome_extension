@@ -90,31 +90,6 @@ async function getWorldTime(){
 
 }
 
-// API WEATHER (https://www.weatherapi.com/) //
-///////////////////////////////////////////////
-
-async function getWeatherIcon(){
-    try {
-        const baseUrl = 'http://api.weatherapi.com/v1';
-        const apiMethod = '/current.json';
-        const requestParam = 'auto:ip'
-        const apiKey = keys.weatherKey;
-
-
-
-        const response = await fetch(baseUrl + apiMethod + '?key=' + apiKey + '&q=' + requestParam)
-        const data = await response.json();
-
-        console.log(data)
-        //get only the icon for the current weather
-        return data.current.condition.icon;
-
-    }catch (error){
-        console.error('Error on main function: ', error)
-        return null;
-    }
-}
-
 
 // API GEOLOCATION (https://freegeoip.app/) //
 /////////////////////////////////////////////
@@ -144,4 +119,4 @@ async function getGeoLocation(){
     }
 }
 
-export { getQuoteAndAuthor, getWorldTime, getWeatherIcon }
+export { getQuoteAndAuthor, getWorldTime , getGeoLocation }
