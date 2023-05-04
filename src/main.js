@@ -47,11 +47,13 @@ document.querySelector('#app').innerHTML = `
 async function awaitPromise(){
     const quote = await getQuoteAndAuthor();
 
-    if (quote.quoteAuthor === null){
-        console.log("Houve um erro")
+    if (quote.quoteAuthor === null || quote.quoteText === null)  {
+        console.log("Fields undefined/null")
     } else {
-        console.log(quote)
+        const { quoteAuthor, quoteText } = quote
+        console.log('Author: ', quoteAuthor);
+        console.log('Quote: ', quoteText)
     }
 }
 
-awaitPromise().catch((e) => console.error('Erro'));
+awaitPromise().catch((e) => console.error('Error on import file: ', e));

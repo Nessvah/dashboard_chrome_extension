@@ -5,13 +5,13 @@
 async function getQuoteAndAuthor(){
     try {
         const baseUrl = 'https://api.quotable.io/';
-        const endpoint = 'random';
+        const endpoint = 'rando';
 
 
         // TODO: Get random quote
         // make GET request to the api to get the data
         const response = await fetch(baseUrl + endpoint)
-        // handle if we get a response other than OK
+        // handle if we get a response like 404
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -29,10 +29,9 @@ async function getQuoteAndAuthor(){
         };
     }catch (error) {
         // handle errors
-        console.error('Erro: ', error)
+        console.error('Main error: ', error)
        return null
     }
-
 }
 
 export { getQuoteAndAuthor }
