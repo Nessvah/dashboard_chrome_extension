@@ -4,10 +4,8 @@ import './css/main.css'
 import {getGeoLocation, getQuoteAndAuthor, getWorldTime} from "./services/api.js";
 import {
     renderQuote,
-    runRenderTimeFieldsEveryMin,
     renderPlaceField,
     renderTimeFields,
-    awaitTimePromise
 } from "./services/util.js";
 
 
@@ -30,7 +28,7 @@ function renderMainPage(){
         <div id="icon"></div>
         <div id="greeting"></div>
      </div>
-    <div class="weather__hour" id="clock"><p> 12:30 utc</p></div>
+    <div class="weather__hour" id="clock"></div>
     <div class="weather__location"><p id="location">in London, UK.</p></div>
   </section>
 
@@ -67,7 +65,7 @@ renderMainPage();
 // we need to wait for the promise to resolve before proceeding
 // and handle any errors or null values that might arise
 
-async function awaitPromise(){
+async function awaitQuotePromise(){
     const quote = await getQuoteAndAuthor();
 
     if (quote.quoteAuthor === null || quote.quoteText === null)  {
@@ -94,10 +92,21 @@ async function awaitGeoLocationPromise(){
 }
 
 
+async function awaitTimePromise(){
+    const time = await getWorldTime();
+
+    if(time.abbr === null){
+        console.log('Undefined fields');
+    } else {
+        const { abbr, hour, minute, dow, doy, timezone, weekNum } = time;
+        renderTimeFields(abbr, hour, minute, dow, doy, timezone, weekNum);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    awaitPromise().catch((e) => console.error('Error on import file: ',e));
+    awaitQuotePromise().catch((e) => console.error('Error on import file: ',e));
     awaitTimePromise().catch((e)=> console.error('Error on import file: ', e));
-    runRenderTimeFieldsEveryMin(renderTimeFields);
+    // reRenderTimeFieldsEveryMin(renderTimeFields); - can't make calls to the api every minute
 })
 
 

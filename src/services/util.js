@@ -59,7 +59,7 @@ export function renderTimeFields(abbr, hour, min, dow, doy, timezone, weekNum){
     const appEl = document.getElementById('app');
     appEl.classList.add(hour >= 12 ? 'morning' : 'evening')
 
-     // TODO: need to refactor this !!
+
     document.getElementById('clock').innerHTML = timeHtml;
     document.getElementById('greeting').innerHTML = greetingHtml;
     document.getElementById('timezone').textContent = timezone;
@@ -74,21 +74,19 @@ export function renderPlaceField(city, country){
      document.getElementById('location').textContent = `in ${city}, ${country}`
 }
 
-export async function awaitTimePromise(){
-    const time = await getWorldTime();
 
-    if(time.abbr === null){
-        console.log('Undefined fields');
-    } else {
-        const { abbr, hour, minute, dow, doy, timezone, weekNum } = time;
-        renderTimeFields(abbr, hour, minute, dow, doy, timezone, weekNum);
-    }
-}
 
-// function to get the hour and minute every minute
-export function runRenderTimeFieldsEveryMin(){
+// TODO: implement functionality to update the clock every minute
+
+
+// function to update the time info the hour and minute every minute
+// can't do this
+
+/*
+export function reRenderTimeFieldsEveryMin(){
     setTimeout(() => {
     awaitTimePromise(renderTimeFields).catch((e)=> console.error('Error on import file: ', e));
-    runRenderTimeFieldsEveryMin(renderTimeFields);
+    reRenderTimeFieldsEveryMin(renderTimeFields);
     }, 60000)
 }
+*/
