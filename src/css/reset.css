@@ -7,7 +7,10 @@
 }
 
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    --black: #000;
+    --white: #000;
+    --dark-grey: #303030;
+    font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
     font-synthesis: none;
@@ -25,6 +28,7 @@ html {
 body {
     font-size: 1.6rem;
     line-height: 1.5;
+    color: var(--white);
 }
 
 img,

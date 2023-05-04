@@ -14,9 +14,9 @@ function renderMainPage(){
 
     document.querySelector('#app').innerHTML = `
   <header class="quote-section">
-      <div class="quote_content">
-         <p id="quote"></p>
-        <h4 id="author"></h4>
+      <div class="quote-content">
+         <h4 id="quote"></h4>
+        <h5 id="author"></h5>
     </div>
     <button id="refresh" class="refresh-btn">
         <img src="assets/desktop/icon-refresh.svg" alt="" width="18" height="18"/>
@@ -106,6 +106,7 @@ async function awaitTimePromise(){
 document.addEventListener('DOMContentLoaded', () => {
     awaitQuotePromise().catch((e) => console.error('Error on import file: ',e));
     awaitTimePromise().catch((e)=> console.error('Error on import file: ', e));
+    awaitGeoLocationPromise().catch((e) => console.error('Error on import file: ', e))
     // reRenderTimeFieldsEveryMin(renderTimeFields); - can't make calls to the api every minute
 })
 

@@ -34,7 +34,7 @@ function setBgImage(hour){
 // function to render the quote and author html
 
 export function renderQuote(quote, author) {
-    document.getElementById('quote').textContent = quote;
+    document.getElementById('quote').textContent = `"${quote}"`;
     document.getElementById('author').textContent = author;
 }
 

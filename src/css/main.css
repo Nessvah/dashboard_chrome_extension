@@ -1,4 +1,49 @@
+/* TYPOGRAPHY */
 
+h1, h2, h3, h5,h6 {
+  font-weight: 800;
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 4px;
+}
+
+h1 {
+  font-size: 20rem;
+  line-height: 20rem;
+  letter-spacing: -5px;
+}
+
+h3 {
+  font-size: 5.6rem;
+  line-height: 6.8rem;
+}
+
+h3, h4, h5, h6 {
+  line-height: 2.8rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+  letter-spacing: -4.8px;
+}
+
+h4 {
+  font-size: 2rem;
+  letter-spacing: 4px;
+}
+
+h5 {
+  font-size: 1.8rem;
+}
+
+h6 {
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+}
+/* MAIN LAYOUT */
 #app {
   width: 100vw;
   min-height: 100vh;
@@ -8,6 +53,33 @@
   color: aliceblue;
 }
 
+.quote-section {
+  height: 50vh;
+  width: 100%;
+  padding: 5.6rem 0 0 16.5rem;
+  display: flex;
+  align-items: start;
+  gap: 1.6rem;
+}
+
+#quote {
+  margin-bottom: 1.4rem;
+}
+
+.quote-content {
+  width: fit-content;
+  max-width: 50%;
+  hyphens: auto;
+}
+
+/* BUTTONS */
+
+.refresh-btn {
+  background-color: transparent;
+  border: none;
+ cursor: pointer;
+}
+/* UTIL */
 .hidden {
   display: none;
 }
