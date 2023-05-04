@@ -1,13 +1,15 @@
 import './css/reset.css'
 import './css/main.css'
 
-import {getQuoteAndAuthor} from "./services/api.js";
+import {getQuoteAndAuthor, getWorldTime} from "./services/api.js";
 
 
-document.querySelector('#app').innerHTML = `
+function renderMainPage(){
+
+    document.querySelector('#app').innerHTML = `
   <header id="quote" class="quote-section">
-  <div class="quote__text"> Quote goes here </div>
-  <div class="quote__author">Author goes here </div>
+  <div class="quote__text" id="quote">quote</div>
+  <div class="quote__author" id="author">author</div>
 </header>
 <main>
   <section class="weather-section">
@@ -42,8 +44,13 @@ document.querySelector('#app').innerHTML = `
   </div>
 </section>
 `
+}
 
-// we need to wait for the promise to resolved before proceeding
+renderMainPage();
+
+
+// we need to wait for the promise to resolve before proceeding
+// and handle any errors or null values that might arise
 async function awaitPromise(){
     const quote = await getQuoteAndAuthor();
 
@@ -51,9 +58,28 @@ async function awaitPromise(){
         console.log("Fields undefined/null")
     } else {
         const { quoteAuthor, quoteText } = quote
-        console.log('Author: ', quoteAuthor);
-        console.log('Quote: ', quoteText)
+       const quote=  document.getElementById('quote');
+        const author = document.getElementById('author');
+
+        console.log(quote, author)
     }
 }
 
-awaitPromise().catch((e) => console.error('Error on import file: ', e));
+async function awaitTimePromise(){
+    const time = await getWorldTime();
+
+    if(time.abbr === null){
+        console.log('Undefined fields');
+    } else {
+        const { abbr, hour, minute, dow, doy, timezone, weekNum } = time;
+        console.log(hour + ' : ' + minute)
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    awaitPromise().catch((e) => console.error('Error on import file: ',e));
+    awaitTimePromise().catch((e)=> console.error('Error on import file: ', e))
+})
+
+
+
