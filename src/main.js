@@ -1,8 +1,9 @@
 import './css/reset.css'
 import './css/main.css'
 
-import {getQuoteAndAuthor, getWorldTime} from "./services/api.js";
-import {renderQuote} from "./services/util.js";
+import {getQuoteAndAuthor, getWeatherIcon, getWorldTime} from "./services/api.js";
+import {renderQuote, renderTimeFields} from "./services/util.js";
+
 
 
 function renderMainPage(){
@@ -14,9 +15,10 @@ function renderMainPage(){
 </header>
 <main>
   <section class="weather-section">
-    <div class="weather__current">
-      <p> Sunny, where, it's currently </p></div>
-    <div class="weather__hour"><p> 12:30 utc</p></div>
+    <div class="weather__current" id="greeting">
+       
+      <p>where, it's currently </p></div>
+    <div class="weather__hour" id="clock"><p> 12:30 utc</p></div>
     <div class="weather__location"><p>in London, UK.</p></div>
   </section>
 
@@ -26,21 +28,21 @@ function renderMainPage(){
   <div class="time-year">
     <div class="timezone">
       <p>Current timezone</p>
-      <p>Europe/London</p>
+      <p id="timezone">Europe/London</p>
     </div>
     <div class="year-days">
       <p>Day of the year</p>
-      <p>295</p>
+      <p id="day-of-year">295</p>
     </div>
   </div>
   <div>
     <div>
       <p>Day of the week</p>
-      <p>5</p>
+      <p id="day-of-week">5</p>
     </div>
     <div>
       <p>Week number</p>
-      <p>42</p>
+      <p id="week-number">42</p>
     </div>
   </div>
 </section>
@@ -60,9 +62,18 @@ async function awaitPromise(){
         console.log("Fields undefined/null")
     } else {
         const { quoteAuthor, quoteText } = quote
-
         renderQuote(quoteText, quoteAuthor);
     }
+}
+
+async function awaitWeatherIconPromise(){
+    const iconUrl = await getWeatherIcon();
+
+    if (iconUrl == null){
+        console.error('Icon undefined')
+    }
+
+    document.getElementById('greeting').innerHTML += `<img src='${iconUrl}' width="60px" />`
 }
 
 async function awaitTimePromise(){
@@ -72,13 +83,17 @@ async function awaitTimePromise(){
         console.log('Undefined fields');
     } else {
         const { abbr, hour, minute, dow, doy, timezone, weekNum } = time;
-        console.log(hour + ' : ' + minute)
+        renderTimeFields(abbr, hour, minute, dow, doy, timezone, weekNum);
     }
 }
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     awaitPromise().catch((e) => console.error('Error on import file: ',e));
+    awaitWeatherIconPromise().catch((e)=> console.error('Error on import file,', e))
     awaitTimePromise().catch((e)=> console.error('Error on import file: ', e))
+
 })
 
 

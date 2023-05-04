@@ -1,4 +1,5 @@
 import {extractHourAndMin} from "./util.js";
+import WEATHER_API_KEY from "../../config.js";
 
 // API QUOTES (https://github.com/lukePeavey/quotable) //
 ////////////////////////////////////////////////////////
@@ -88,5 +89,28 @@ async function getWorldTime(){
 
 }
 
+// API WEATHER (https://www.weatherapi.com/) //
+///////////////////////////////////////////////
 
-export { getQuoteAndAuthor, getWorldTime }
+async function getWeatherIcon(){
+    try {
+        const baseUrl = 'http://api.weatherapi.com/v1';
+        const apiMethod = '/current.json';
+        const requestParam = 'auto:ip'
+        const apiKey = WEATHER_API_KEY;
+
+        const response = await fetch(baseUrl + apiMethod + '?key=' + apiKey + '&q=' + requestParam)
+        const data = await response.json();
+
+        // get only the icon for the current weather
+        return data.current.condition.icon;
+
+    }catch (error){
+        console.error('Error on main function: ', error)
+        return null;
+    }
+}
+
+
+
+export { getQuoteAndAuthor, getWorldTime, getWeatherIcon }
