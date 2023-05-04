@@ -1,5 +1,6 @@
 import {extractHourAndMin} from "./util.js";
-import WEATHER_API_KEY from "../../config.js";
+import keys from "../../config.js";
+
 
 // API QUOTES (https://github.com/lukePeavey/quotable) //
 ////////////////////////////////////////////////////////
@@ -97,12 +98,15 @@ async function getWeatherIcon(){
         const baseUrl = 'http://api.weatherapi.com/v1';
         const apiMethod = '/current.json';
         const requestParam = 'auto:ip'
-        const apiKey = WEATHER_API_KEY;
+        const apiKey = keys.weatherKey;
+
+
 
         const response = await fetch(baseUrl + apiMethod + '?key=' + apiKey + '&q=' + requestParam)
         const data = await response.json();
 
-        // get only the icon for the current weather
+        console.log(data)
+        //get only the icon for the current weather
         return data.current.condition.icon;
 
     }catch (error){
@@ -112,5 +116,32 @@ async function getWeatherIcon(){
 }
 
 
+// API GEOLOCATION (https://freegeoip.app/) //
+/////////////////////////////////////////////
+
+async function getGeoLocation(){
+
+    //https://api.ipbase.com/v2/info?apikey=YqFvrfBQPvYUKrsKjL12G3QNKFqq1bNN55m6EyAe&ip=1.1.1.1
+    try {
+        const baseUrl = 'https://api.ipbase.com/v2';
+        const endpoint = '/info';
+        const locationApiKey = keys.locationKey;
+
+        const response = await fetch(baseUrl + endpoint + '?apikey=' + locationApiKey)
+        const data = await response.json();
+
+        const country = data.data.location.country.alpha2;
+        const city = data.data.location.city.name;
+
+        return {
+            country,
+            city
+        }
+
+    } catch(error){
+        console.error('Error on main function: ', error);
+        return null;
+    }
+}
 
 export { getQuoteAndAuthor, getWorldTime, getWeatherIcon }
