@@ -15,7 +15,7 @@ function renderMainPage(){
     document.querySelector('#app').innerHTML = `
   <header class="quote-section">
       <div class="quote-content">
-         <h4 id="quote"></h4>
+         <h5 id="quote"></h5>
         <h5 id="author"></h5>
     </div>
     <button id="refresh" class="refresh-btn">
@@ -25,14 +25,19 @@ function renderMainPage(){
 <main>
   <section class="weather-section">
     <div class="weather__current">
-        <div id="icon"></div>
+        <div class="icon" id="icon"></div>
         <div id="greeting"></div>
      </div>
     <div class="weather__hour" id="clock"></div>
-    <div class="weather__location"><p id="location">in London, UK.</p></div>
+    <div class="weather__location"><h3 id="location">in London, UK.</h3></div>
   </section>
 
-  <button id="btn-more" class="btn">More</button>
+  <button id="btn-more" class="btn">
+      <p>More</p> 
+      <div class="arrow-icon">
+        <img src="assets/desktop/icon-arrow-down.svg" alt="" width="12px" height="6px"/>
+      </div>
+</button>
 </main>
 <section class="hidden" id="more__info">
   <div class="time-year">

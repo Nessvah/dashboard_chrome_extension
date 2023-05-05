@@ -9,7 +9,7 @@ function setBgImage(hour){
     const bgImage = hour <= 12 ? 'assets/desktop/bg-image-daytime.jpg' : 'assets/desktop/bg-image-nighttime.jpg'
     const icon = hour <= 12 ? 'assets/desktop/icon-sun.svg' : 'assets/desktop/icon-moon.svg'
 
-    document.getElementById('icon').innerHTML = `<img src='${icon}' width="50px" height="50px" alt=""/>`
+    document.getElementById('icon').innerHTML = `<img src='${icon}' width="25px" height="25px" alt=""/>`
     document.getElementById('app').style.backgroundImage = `url(${bgImage})`;
 
 }
@@ -48,11 +48,11 @@ export function renderTimeFields(abbr, hour, min, dow, doy, timezone, weekNum){
     let greetingHtml = '';
 
      if (hour >= 5 && hour < 12 ){
-         greetingHtml = '<p>Good morning, it\'s currently</p>';
+         greetingHtml = '<h4>Good morning, it\'s currently</h4>';
      } else if (hour >= 12 && hour < 18) {
-         greetingHtml = 'Good afternoon, it\'s currently';
+         greetingHtml = '<h4>Good afternoon, it\'s currently</h4>';
      } else {
-         greetingHtml = 'Good evening, it\'s currently';
+         greetingHtml = '<h4>Good evening, it\'s currently</h4>';
      }
      const timeHtml = `<h1>${hour}:${min}</h1><span class="time-abbr"> ${abbr}</span>`;
      // grab the dom element to modify
