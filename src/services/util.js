@@ -5,9 +5,19 @@
 import {getWorldTime} from "./api.js";
 
 function setBgImage(hour){
+    const moreInfoSection = document.getElementById('more__info');
 
-    const bgImage = hour <= 12 ? 'assets/desktop/bg-image-daytime.jpg' : 'assets/desktop/bg-image-nighttime.jpg'
-    const icon = hour <= 12 ? 'assets/desktop/icon-sun.svg' : 'assets/desktop/icon-moon.svg'
+    let bgImage, icon;
+
+    if (hour <= 12){
+        bgImage = 'assets/desktop/bg-image-daytime.jpg';
+        icon = 'assets/desktop/icon-sun.svg'
+        moreInfoSection.classList.add('daytime');
+    } else {
+        bgImage = 'assets/desktop/bg-image-nighttime.jpg';
+        icon = 'assets/desktop/icon-moon.svg'
+        moreInfoSection.classList.add('nighttime');
+    }
 
     document.getElementById('icon').innerHTML = `<img src='${icon}' width="25px" height="25px" alt=""/>`
     document.getElementById('app').style.backgroundImage = `url(${bgImage})`;
@@ -74,7 +84,7 @@ export function renderPlaceField(city, country){
      document.getElementById('location').textContent = `in ${city}, ${country}`
 }
 
-
+// function to get another
 
 // TODO: implement functionality to update the clock every minute
 

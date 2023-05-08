@@ -13,7 +13,7 @@ import {
 function renderMainPage(){
 
     document.querySelector('#app').innerHTML = `
-  <header class="quote-section">
+  <header class="quote-section" id="quote-section">
       <div class="quote-content">
          <h5 id="quote"></h5>
         <h5 id="author"></h5>
@@ -29,17 +29,18 @@ function renderMainPage(){
         <div id="greeting"></div>
      </div>
     <div class="weather__hour" id="clock"></div>
-    <div class="weather__location"><h3 id="location">in London, UK.</h3></div>
+    <div class="weather__location"><h3 id="location"></h3></div>
   </section>
 
-  <button id="btn-more" class="btn">
+  <button class="btn">
       <p>More</p> 
-      <div class="arrow-icon">
-        <img src="assets/desktop/icon-arrow-down.svg" alt="" width="12px" height="6px"/>
+      <div class="arrow-icon" id="more-less">
+        <img id="icon-down" class="arrow-down" src="assets/desktop/icon-arrow-down.svg" alt="" width="12px" height="6px"/>
+        <img  id="icon-up" class="arrow-up" src="assets/desktop/icon-arrow-up.svg" alt="" width="12px" height="6px"/>
       </div>
 </button>
 </main>
-<section class="hidden" id="more__info">
+<section class="hidden more__info" id="more__info">
   <div class="time-year">
     <div class="timezone">
       <p>Current timezone</p>
@@ -65,6 +66,8 @@ function renderMainPage(){
 }
 
 renderMainPage();
+
+const moreInfoSection = document.getElementById('more__info');
 
 
 // we need to wait for the promise to resolve before proceeding
@@ -116,6 +119,33 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
+// event listener to get new random quote
+document.getElementById('refresh').addEventListener('click', () => {
+    awaitQuotePromise().catch((e) => console.error('Error on import file: ',e));
+});
 
+document.getElementById('more-less').addEventListener('click', () => {
+    // hide/show the header section and the more info section
+    const quoteSection = document.getElementById('quote-section');
+    const arrowUp = document.getElementById('icon-up')
+    const arrowDown = document.getElementById('icon-down')
+    const arrow = document.getElementById('more-less');
 
+    quoteSection.classList.toggle('hidden');
+
+    if (quoteSection.classList.contains('hidden'))
+    {
+       arrowDown.style.display = 'none';
+       arrowUp.style.display = 'block'
+        moreInfoSection.classList.remove('hidden');
+    }
+
+    if(!quoteSection.classList.contains('hidden'))
+    {
+        arrowDown.style.display = 'block';
+        arrowUp.style.display = 'none'
+        moreInfoSection.classList.add('hidden');
+    }
+
+})
 

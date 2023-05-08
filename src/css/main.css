@@ -58,7 +58,7 @@ h6 {
 }
 
 .quote-section,
-main {
+main, .more__info {
   height: 50vh;
   width: 100%;
 }
@@ -99,6 +99,7 @@ main {
   padding-left: 1.4rem;
 }
 
+
 .weather__hour {
   margin: 1.6rem 0;
   display: flex;
@@ -123,12 +124,33 @@ main {
   display:flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .arrow-icon:hover {
   background-color: #999;
   cursor: pointer;
 }
+
+.arrow-up {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  display: none;
+  background-color: transparent;
+}
+
+.arrow-down {
+  display: block;
+ 
+}
+
+/* HIDDEN SECTION WITH MORE INFO */
+
+.more__info {
+
+}
+
 
 /* BUTTONS */
 
@@ -156,4 +178,16 @@ main {
 /* UTIL */
 .hidden {
   display: none;
+}
+
+/* Background-filter has low support on browsers */
+
+.daytime {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+}
+
+.nighttime {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(20px);
 }
