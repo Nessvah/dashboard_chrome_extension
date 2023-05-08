@@ -41,24 +41,25 @@ function renderMainPage(){
 </button>
 </main>
 <section class="hidden more__info" id="more__info">
-  <div class="time-year">
-    <div class="timezone">
-      <p>Current timezone</p>
-      <p id="timezone">Europe/London</p>
+  <div class="time-year vertical-border">
+    <div>
+      <h6>Current timezone</h6>
+      <h2 id="timezone">Europe/London</h2>
     </div>
     <div class="year-days">
-      <p>Day of the year</p>
-      <p id="day-of-year">295</p>
+      <h6>Day of the year</h6>
+      <h2 id="day-of-year">295</h2>
     </div>
   </div>
-  <div>
+  
+  <div class="time-year pl-9">
     <div>
-      <p>Day of the week</p>
-      <p id="day-of-week">5</p>
+      <h6>Day of the week</h6>
+      <h2 id="day-of-week">5</h2>
     </div>
     <div>
-      <p>Week number</p>
-      <p id="week-number">42</p>
+      <h6>Week number</h6>
+      <h2 id="week-number">42</h2>
     </div>
   </div>
 </section>
