@@ -1,15 +1,36 @@
 
 
-// function to set the background image depending on the hour
 
-import {getWorldTime} from "./api.js";
+// function to set the ui
+function updateUiDayNight(icon, bgImage, currentHour, startDayTime, endDayTime){
+    const timeContainer = document.getElementById('time-container');
+
+    document.getElementById('icon').innerHTML = `<img src='${icon}' width="25px" height="25px" alt=""/>`
+    document.getElementById('app').style.backgroundImage = `url(${bgImage})`;
+
+    if (currentHour >= startDayTime && currentHour < endDayTime){
+        timeContainer.classList.add('vb-dark')
+        timeContainer.classList.remove('vb-light')
+    } else {
+        timeContainer.classList.remove('vb-dark')
+        timeContainer.classList.add('vb-light')
+    }
+
+}
+
+// function to set the background image depending on the hour
 
 function setBgImage(hour){
     const moreInfoSection = document.getElementById('more__info');
+    const starDayTime = 5;
+    const endDayTime = 18;
 
     let bgImage, icon;
 
-    if (hour <= 12){
+    //  The sun icon and the daytime background image between 5am and 6pm - 5-18
+    //   - The moon icon and the nighttime background image between 6pm and 5am 18-5
+
+    if (hour >= starDayTime && hour < endDayTime){
         bgImage = 'assets/desktop/bg-image-daytime.jpg';
         icon = 'assets/desktop/icon-sun.svg'
         moreInfoSection.classList.add('daytime');
@@ -19,9 +40,7 @@ function setBgImage(hour){
         moreInfoSection.classList.add('nighttime');
     }
 
-    document.getElementById('icon').innerHTML = `<img src='${icon}' width="25px" height="25px" alt=""/>`
-    document.getElementById('app').style.backgroundImage = `url(${bgImage})`;
-
+    updateUiDayNight(icon, bgImage, hour, starDayTime, endDayTime);
 }
 
 

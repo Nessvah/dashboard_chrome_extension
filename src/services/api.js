@@ -47,8 +47,8 @@ async function getQuoteAndAuthor(){
 
 async function getWorldTime(){
     try {
-        const baseUrl = 'http://worldtimeapi.org/api/';
-        const endpoint = 'ip';
+        const baseUrl = 'http://worldtimeapi.org/api';
+        const endpoint = '/ip';
 
         const response = await fetch(baseUrl + endpoint);
 
@@ -69,6 +69,8 @@ async function getWorldTime(){
         // lets use destructuring
         const { abbreviation: abbr, datetime: dateString, day_of_week: dow, day_of_year: doy, timezone: timezone,
             week_number: weekNum } = data;
+
+        // TODO: instead of days of the week in numbers, translate into monday ....
 
         // separate the dateString into hours and minutes
         const time = extractHourAndMin(dateString);

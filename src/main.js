@@ -33,15 +33,15 @@ function renderMainPage(){
   </section>
 
   <button class="btn">
-      <p>More</p> 
-      <div class="arrow-icon" id="more-less">
+      <p id="more-less">More</p> 
+      <div class="arrow-icon" id="arrow-icon">
         <img id="icon-down" class="arrow-down" src="assets/desktop/icon-arrow-down.svg" alt="" width="12px" height="6px"/>
         <img  id="icon-up" class="arrow-up" src="assets/desktop/icon-arrow-up.svg" alt="" width="12px" height="6px"/>
       </div>
 </button>
 </main>
 <section class="hidden more__info" id="more__info">
-  <div class="time-year vertical-border">
+  <div class="time-year" id="time-container">
     <div>
       <h6>Current timezone</h6>
       <h2 id="timezone">Europe/London</h2>
@@ -63,6 +63,7 @@ function renderMainPage(){
     </div>
   </div>
 </section>
+<footer class="fixed"><p>2023 &copy; Developed by <a href="https://github.com/Nessvah">Sílvia Vanessa</a></p></footer
 `
 }
 
@@ -103,7 +104,7 @@ async function awaitGeoLocationPromise(){
 
 async function awaitTimePromise(){
     const time = await getWorldTime();
-
+    console.log(time)
     if(time.abbr === null){
         console.log('Undefined fields');
     } else {
@@ -125,12 +126,13 @@ document.getElementById('refresh').addEventListener('click', () => {
     awaitQuotePromise().catch((e) => console.error('Error on import file: ',e));
 });
 
-document.getElementById('more-less').addEventListener('click', () => {
+document.getElementById('arrow-icon').addEventListener('click', () => {
     // hide/show the header section and the more info section
     const quoteSection = document.getElementById('quote-section');
     const arrowUp = document.getElementById('icon-up')
     const arrowDown = document.getElementById('icon-down')
-    const arrow = document.getElementById('more-less');
+    const arrow = document.getElementById('arrow-icon');
+    const arrowText = document.getElementById('more-less')
 
     quoteSection.classList.toggle('hidden');
 
@@ -139,6 +141,7 @@ document.getElementById('more-less').addEventListener('click', () => {
        arrowDown.style.display = 'none';
        arrowUp.style.display = 'block'
         moreInfoSection.classList.remove('hidden');
+       arrowText.textContent = 'less'
     }
 
     if(!quoteSection.classList.contains('hidden'))
@@ -146,6 +149,7 @@ document.getElementById('more-less').addEventListener('click', () => {
         arrowDown.style.display = 'block';
         arrowUp.style.display = 'none'
         moreInfoSection.classList.add('hidden');
+        arrowText.textContent = 'more'
     }
 
 })

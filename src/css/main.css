@@ -1,3 +1,35 @@
+/* GLOBAL */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a {
+  background:
+          linear-gradient(
+                  to right,
+                  rgba(100, 200, 200, 1),
+                  rgba(100, 200, 200, 1)
+          ),
+          linear-gradient(
+                  to right,
+                  rgba(255, 0, 0, 1),
+                  rgba(255, 0, 180, 1),
+                  rgba(0, 100, 200, 1)
+          );
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+
+a:hover {
+  background-size: 0 3px, 100% 3px;
+}
+
+
+
 /* TYPOGRAPHY */
 
 h1, h2, h3, h5,h6 {
@@ -159,10 +191,16 @@ main {
   gap: 4.2rem;
 }
 
-.vertical-border {
-  border-right: 1px solid rgba(255,255,255,0.25);
+.vb-light {
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
   -webkit-background-clip: padding-box; /* for Safari */
   background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+}
+
+.vb-dark {
+  border-right: 1px solid rgba(48, 48, 48, .25);
+  -webkit-background-clip: padding-box; /* for Safari */
+   background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
 }
 
 .pl-9 {
@@ -201,11 +239,18 @@ h6 {
   display: none;
 }
 
+.fixed {
+  position: fixed;
+  bottom: 2rem;
+  right: 15rem;
+  width: 300px;
+}
 /* Background-filter has low support on browsers */
 
 .daytime {
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(20px);
+  color: var(--dark-grey);
 }
 
 .nighttime {
