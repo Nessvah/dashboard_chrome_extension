@@ -166,15 +166,12 @@ main {
 
 .arrow-up {
   position: absolute;
-  width: 80%;
-  height: 80%;
   display: none;
   background-color: transparent;
 }
 
 .arrow-down {
   display: block;
- 
 }
 
 /* HIDDEN SECTION WITH MORE INFO */
