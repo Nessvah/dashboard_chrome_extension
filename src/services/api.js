@@ -1,5 +1,4 @@
 import {extractHourAndMin} from "./util.js";
-import keys from "../../config.js";
 
 
 // API QUOTES (https://github.com/lukePeavey/quotable) //
@@ -102,7 +101,7 @@ async function getGeoLocation(){
     try {
         const baseUrl = 'https://api.ipbase.com/v2';
         const endpoint = '/info';
-        const locationApiKey = keys.locationKey;
+        const locationApiKey = 'YqFvrfBQPvYUKrsKjL12G3QNKFqq1bNN55m6EyAe';
 
         const response = await fetch(baseUrl + endpoint + '?apikey=' + locationApiKey)
         const data = await response.json();

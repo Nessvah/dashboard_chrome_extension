@@ -109,6 +109,7 @@ async function awaitTimePromise(){
         console.log('Undefined fields');
     } else {
         const { abbr, hour, minute, dow, doy, timezone, weekNum } = time;
+
         renderTimeFields(abbr, hour, minute, dow, doy, timezone, weekNum);
     }
 }
@@ -131,7 +132,6 @@ document.getElementById('arrow-icon').addEventListener('click', () => {
     const quoteSection = document.getElementById('quote-section');
     const arrowUp = document.getElementById('icon-up')
     const arrowDown = document.getElementById('icon-down')
-    const arrow = document.getElementById('arrow-icon');
     const arrowText = document.getElementById('more-less')
 
     quoteSection.classList.toggle('hidden');
@@ -153,4 +153,5 @@ document.getElementById('arrow-icon').addEventListener('click', () => {
     }
 
 })
+
 

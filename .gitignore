@@ -43,4 +43,4 @@ dist-ssr
 .prettierignore
 
 # Avoid the api key to be visible by others
-config.js
+/.env
