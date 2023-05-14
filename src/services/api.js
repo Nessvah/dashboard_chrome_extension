@@ -92,22 +92,21 @@ async function getWorldTime(){
 }
 
 
-// API GEOLOCATION (https://freegeoip.app/) //
+// API GEOLOCATION (https://ipgeolocation.io/) //
 /////////////////////////////////////////////
 
 async function getGeoLocation(){
 
-    //https://api.ipbase.com/v2/info?apikey=YqFvrfBQPvYUKrsKjL12G3QNKFqq1bNN55m6EyAe&ip=1.1.1.1
+    //https://api.ipgeolocation.io/ipgeo?apiKey=0bd95ccc5a714b58b7dd080f04af9183
     try {
-        const baseUrl = 'https://api.ipbase.com/v2';
-        const endpoint = '/info';
-        const locationApiKey = 'YqFvrfBQPvYUKrsKjL12G3QNKFqq1bNN55m6EyAe';
+        const baseUrl = 'https://api.ipgeolocation.io/ipgeo';
+        const locationApiKey = '0bd95ccc5a714b58b7dd080f04af9183';
 
-        const response = await fetch(baseUrl + endpoint + '?apikey=' + locationApiKey)
+        const response = await fetch(baseUrl + '?apiKey=' + locationApiKey)
         const data = await response.json();
 
-        const country = data.data.location.country.alpha2;
-        const city = data.data.location.city.name;
+        const country = data.country_code2;
+        const city = data.city;
 
         return {
             country,

@@ -47,7 +47,7 @@ function setBgImage(hour, deviceWidth){
         icon = 'assets/desktop/icon-moon.svg'
         moreInfoSection.classList.add('nighttime');
 
-        if (deviceWidth > 768) {
+        if (deviceWidth > 800) {
             bgImage = 'assets/desktop/bg-image-nighttime.jpg';
         } else if (deviceWidth > 450){
             bgImage = 'assets/tablet/bg-image-nighttime.jpg'
