@@ -42,22 +42,22 @@ function renderMainPage(){
 </main>
 <section class="hidden more__info" id="more__info">
   <div class="time-year" id="time-container">
-    <div>
+    <div class="individual">
       <h6>Current timezone</h6>
       <h2 id="timezone">Europe/London</h2>
     </div>
-    <div class="year-days">
+    <div class="year-days individual">
       <h6>Day of the year</h6>
       <h2 id="day-of-year">295</h2>
     </div>
   </div>
   
   <div class="time-year pl-9">
-    <div>
+    <div class="individual">
       <h6>Day of the week</h6>
       <h2 id="day-of-week">5</h2>
     </div>
-    <div>
+    <div class="individual">
       <h6>Week number</h6>
       <h2 id="week-number">42</h2>
     </div>
