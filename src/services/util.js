@@ -20,7 +20,7 @@ function updateUiDayNight(icon, bgImage, currentHour, startDayTime, endDayTime){
 
 // function to set the background image depending on the hour
 
-function setBgImage(hour){
+function setBgImage(hour, deviceWidth){
     const moreInfoSection = document.getElementById('more__info');
     const starDayTime = 5;
     const endDayTime = 18;
@@ -31,13 +31,29 @@ function setBgImage(hour){
     //   - The moon icon and the nighttime background image between 6pm and 5am 18-5
 
     if (hour >= starDayTime && hour < endDayTime){
-        bgImage = 'assets/desktop/bg-image-daytime.jpg';
         icon = 'assets/desktop/icon-sun.svg'
         moreInfoSection.classList.add('daytime');
+
+        // set different imgs resolution depending on the size of screen
+        if (deviceWidth > 768 ){
+            bgImage = 'assets/desktop/bg-image-daytime.jpg';
+        } else if (deviceWidth > 450){
+            bgImage = 'assets/tablet/bg-image-daytime.jpg'
+        } else {
+            bgImage = 'assets/mobile/bg-image-daytime.jpg'
+        }
+
     } else {
-        bgImage = 'assets/desktop/bg-image-nighttime.jpg';
         icon = 'assets/desktop/icon-moon.svg'
         moreInfoSection.classList.add('nighttime');
+
+        if (deviceWidth > 768) {
+            bgImage = 'assets/desktop/bg-image-nighttime.jpg';
+        } else if (deviceWidth > 450){
+            bgImage = 'assets/tablet/bg-image-nighttime.jpg'
+        } else {
+            bgImage = 'assets/mobile/bg-image-nighttime.jpg'
+        }
     }
 
     updateUiDayNight(icon, bgImage, hour, starDayTime, endDayTime);
@@ -70,7 +86,10 @@ export function renderQuote(quote, author) {
 // function to render the time fields html
 export function renderTimeFields(abbr, hour, min, dow, doy, timezone, weekNum){
 
-    setBgImage(hour);
+    // get width of the browser
+    let browserWidth = window.innerWidth;
+
+    setBgImage(hour, browserWidth);
     //   - "Good morning" between 5am and 12pm
     //   - "Good afternoon" between 12pm and 6pm
     //   - "Good evening" between 6pm and 5am
@@ -103,6 +122,11 @@ export function renderPlaceField(city, country){
      document.getElementById('location').textContent = `in ${city}, ${country}`
 }
 
+// function to get the width of the browser used on device
+
+function getWidthOfBrowser() {
+    var w = window.innerWidth;
+}
 // function to get another
 
 // TODO: implement functionality to update the clock every minute
