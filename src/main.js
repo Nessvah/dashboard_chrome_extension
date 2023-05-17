@@ -19,7 +19,7 @@ function renderMainPage(){
         <h5 id="author"></h5>
     </div>
     <button id="refresh" class="refresh-btn">
-        <img src="assets/desktop/icon-refresh.svg" alt="" width="18" height="18"/>
+        <img src="../public/assets/desktop/icon-refresh.svg" alt="" width="18" height="18"/>
     </button>
 </header>
 <main>
@@ -35,8 +35,8 @@ function renderMainPage(){
   <button class="btn">
       <p id="more-less">More</p> 
       <div class="arrow-icon" id="arrow-icon">
-        <img id="icon-down" class="arrow-down" src="assets/desktop/icon-arrow-down.svg" alt="" width="12px" height="6px"/>
-        <img  id="icon-up" class="arrow-up" src="assets/desktop/icon-arrow-up.svg" alt="" width="12px" height="6px"/>
+        <img id="icon-down" class="arrow-down" src="../public/assets/desktop/icon-arrow-down.svg" alt="" width="12px" height="6px"/>
+        <img  id="icon-up" class="arrow-up" src="../public/assets/desktop/icon-arrow-up.svg" alt="" width="12px" height="6px"/>
       </div>
 </button>
 </main>
