@@ -46,7 +46,7 @@ async function getQuoteAndAuthor(){
 
 async function getWorldTime(){
     try {
-        const baseUrl = 'http://worldtimeapi.org/api';
+        const baseUrl = 'https://worldtimeapi.org/api';
         const endpoint = '/ip';
 
         const response = await fetch(baseUrl + endpoint);
