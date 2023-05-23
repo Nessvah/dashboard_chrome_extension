@@ -1,6 +1,4 @@
 
-
-
 // function to set the ui
 function updateUiDayNight(icon, bgImage, currentHour, startDayTime, endDayTime){
     const timeContainer = document.getElementById('time-container');
@@ -36,23 +34,23 @@ function setBgImage(hour, deviceWidth){
 
         // set different imgs resolution depending on the size of screen
         if (deviceWidth > 768 ){
-            bgImage = 'assets/desktop/bg-image-daytime.jpg';
+            bgImage = '/desktop/bg-image-daytime.jpg';
         } else if (deviceWidth > 450){
-            bgImage = 'assets/tablet/bg-image-daytime.jpg'
+            bgImage = '/tablet/bg-image-daytime.jpg'
         } else {
-            bgImage = 'assets/mobile/bg-image-daytime.jpg'
+            bgImage = '/mobile/bg-image-daytime.jpg'
         }
 
     } else {
-        icon = 'assets/desktop/icon-moon.svg'
+        icon = '/desktop/icon-moon.svg'
         moreInfoSection.classList.add('nighttime');
 
         if (deviceWidth > 800) {
-            bgImage = 'assets/desktop/bg-image-nighttime.jpg';
+            bgImage = '/desktop/bg-image-nighttime.jpg';
         } else if (deviceWidth > 450){
-            bgImage = 'assets/tablet/bg-image-nighttime.jpg'
+            bgImage = '/tablet/bg-image-nighttime.jpg'
         } else {
-            bgImage = 'assets/mobile/bg-image-nighttime.jpg'
+            bgImage = '/mobile/bg-image-nighttime.jpg'
         }
     }
 

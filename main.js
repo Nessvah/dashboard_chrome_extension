@@ -1,12 +1,14 @@
-import './css/reset.css'
-import './css/main.css'
+import './src/css/reset.css'
+import './src/css/main.css'
 
-import {getGeoLocation, getQuoteAndAuthor, getWorldTime} from "./services/api.js";
+
+
+import {getGeoLocation, getQuoteAndAuthor, getWorldTime} from "./src/services/api.js";
 import {
     renderQuote,
     renderPlaceField,
     renderTimeFields,
-} from "./services/util.js";
+} from "./src/services/util.js";
 
 
 
@@ -19,7 +21,7 @@ function renderMainPage(){
         <h5 id="author"></h5>
     </div>
     <button id="refresh" class="refresh-btn">
-        <img src="../public/assets/desktop/icon-refresh.svg" alt="" width="18" height="18"/>
+        <img src="/desktop/icon-refresh.svg" alt="" width="18" height="18"/>
     </button>
 </header>
 <main>
@@ -35,8 +37,8 @@ function renderMainPage(){
   <button class="btn">
       <p id="more-less">More</p> 
       <div class="arrow-icon" id="arrow-icon">
-        <img id="icon-down" class="arrow-down" src="../public/assets/desktop/icon-arrow-down.svg" alt="" width="12px" height="6px"/>
-        <img  id="icon-up" class="arrow-up" src="../public/assets/desktop/icon-arrow-up.svg" alt="" width="12px" height="6px"/>
+        <img id="icon-down" class="arrow-down" src="/desktop/icon-arrow-down.svg" alt="" width="12px" height="6px"/>
+        <img  id="icon-up" class="arrow-up" src="/desktop/icon-arrow-up.svg" alt="" width="12px" height="6px"/>
       </div>
 </button>
 </main>
