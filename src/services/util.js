@@ -62,15 +62,15 @@ function setBgImage(hour, deviceWidth){
 // this is the format string "2023-05-04T09:13:16.639036+01:00";
 
  export function extractHourAndMin(dateStr){
-    const date = new Date(dateStr);
 
-    // if the hour/minute has only one digit, add a zero in front
-    const hour = String(date.getHours()).padStart(2, '0');
-    const minute = String(date.getMinutes()).padStart(2, '0');
+    let splitTime = dateStr.split('T')
+    let time = splitTime[1]
+     let hour = time.split(':')[0]
+    let minutes = time.split(':')[1]
 
     return {
         hour,
-        minute
+        minutes
     }
 }
 
@@ -120,12 +120,7 @@ export function renderPlaceField(city, country){
      document.getElementById('location').textContent = `in ${city}, ${country}`
 }
 
-// function to get the width of the browser used on device
 
-function getWidthOfBrowser() {
-    var w = window.innerWidth;
-}
-// function to get another
 
 // TODO: implement functionality to update the clock every minute
 

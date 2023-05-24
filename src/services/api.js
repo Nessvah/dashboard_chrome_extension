@@ -73,12 +73,12 @@ async function getWorldTime(){
 
         // separate the dateString into hours and minutes
         const time = extractHourAndMin(dateString);
-        const { hour, minute} = time;
+        const { hour, minutes} = time;
 
         return {
             abbr,
             hour,
-            minute,
+            minutes,
             dow,
             doy,
             timezone,

@@ -112,9 +112,9 @@ async function awaitTimePromise(){
     if(time.abbr === null){
         console.log('Undefined fields');
     } else {
-        const { abbr, hour, minute, dow, doy, timezone, weekNum } = time;
+        const { abbr, hour, minutes, dow, doy, timezone, weekNum } = time;
 
-        renderTimeFields(abbr, hour, minute, dow, doy, timezone, weekNum);
+        renderTimeFields(abbr, hour, minutes, dow, doy, timezone, weekNum);
     }
 }
 
