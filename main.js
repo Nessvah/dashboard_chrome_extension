@@ -32,15 +32,17 @@ function renderMainPage(){
      </div>
     <div class="weather__hour" id="clock"></div>
     <div class="weather__location"><h3 id="location"></h3></div>
-  </section>
-
-  <button class="btn">
+      <button class="btn">
       <p id="more-less">More</p> 
       <div class="arrow-icon" id="arrow-icon">
         <img id="icon-down" class="arrow-down" src="/desktop/icon-arrow-down.svg" alt="" width="12px" height="6px"/>
         <img  id="icon-up" class="arrow-up" src="/desktop/icon-arrow-up.svg" alt="" width="12px" height="6px"/>
       </div>
 </button>
+    
+  </section>
+
+
 </main>
 <section class="hidden more__info" id="more__info">
   <div class="time-year" id="time-container">
