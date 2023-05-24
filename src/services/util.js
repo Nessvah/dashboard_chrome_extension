@@ -29,7 +29,7 @@ function setBgImage(hour, deviceWidth){
     //   - The moon icon and the nighttime background image between 6pm and 5am 18-5
 
     if (hour >= starDayTime && hour < endDayTime){
-        icon = 'assets/desktop/icon-sun.svg'
+        icon = '/desktop/icon-sun.svg'
         moreInfoSection.classList.add('daytime');
 
         // set different imgs resolution depending on the size of screen
