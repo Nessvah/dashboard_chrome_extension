@@ -65,7 +65,7 @@ function renderMainPage(){
     </div>
   </div>
 </section>
-<footer class="fixed"><p>2023 &copy; Developed by <a href="https://github.com/Nessvah">Sílvia Vanessa</a></p></footer
+<footer><p>2023 &copy; Developed by <a href="https://github.com/Nessvah">Sílvia Vanessa</a></p></footer
 `
 }
 
