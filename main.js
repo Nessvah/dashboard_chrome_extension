@@ -99,8 +99,8 @@ async function awaitGeoLocationPromise(){
         throw new Error('Null values')
 
     } else {
-        const { city, country } = place;
-        renderPlaceField(city, country);
+        const { country, city } = place;
+        renderPlaceField(country, city);
     }
 
 }

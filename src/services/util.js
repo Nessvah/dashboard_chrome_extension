@@ -116,7 +116,7 @@ export function renderTimeFields(abbr, hour, min, dow, doy, timezone, weekNum){
 
 }
 
-export function renderPlaceField(city, country){
+export function renderPlaceField(country, city){
      document.getElementById('location').textContent = `in ${city}, ${country}`
 }
 
