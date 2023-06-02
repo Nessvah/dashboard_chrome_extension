@@ -79,6 +79,8 @@ h6 {
 
 /* MAIN LAYOUT */
 #app {
+  display: flex;
+  flex-direction: column;
   width: 100vw;
   min-height: 100vh;
   background-position: top;
@@ -89,13 +91,17 @@ h6 {
   color: var(--white);
 }
 
-.quote-section,
-main, .more__info {
+
+.more__info {
   height: 50vh;
-  width: 100%;
+}
+
+main {
+  height: 45vh;
 }
 
 .quote-section {
+  height: 40vh;
   display: flex;
   align-items: start;
   gap: 1.6rem;
@@ -114,20 +120,24 @@ main, .more__info {
 }
 
 main {
-  display:flex;
-  align-items: end;
-  justify-content: space-between;
-  padding: 5.6rem 16.5rem 10rem 16.5rem;
+  padding: 5.6rem 16.5rem 0 16.5rem;
+  margin-top: auto;
 }
-.weather__section {
+.weather-section {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
 }
 .weather__current {
   display: flex;
   align-items: center;
   gap: 1.6rem;
   text-transform: uppercase;
+}
+
+.weather__col {
+  display: flex;
+  flex-direction: column;
 }
 
 .icon {
@@ -242,10 +252,9 @@ h6 {
 }
 
 footer {
-  margin-top: auto;
   padding: .6rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 /* Background-filter has low support on browsers */

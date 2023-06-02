@@ -26,24 +26,27 @@ function renderMainPage(){
 </header>
 <main>
   <section class="weather-section">
-    <div class="weather__current">
+  <div class="weather__col">
+   <div class="weather__current">
         <div class="icon" id="icon"></div>
         <div id="greeting"></div>
      </div>
     <div class="weather__hour" id="clock"></div>
     <div class="weather__location"><h3 id="location"></h3></div>
+</div>
       <button class="btn">
-      <p id="more-less">More</p> 
-      <div class="arrow-icon" id="arrow-icon">
-        <img id="icon-down" class="arrow-down" src="/desktop/icon-arrow-down.svg" alt="" width="12px" height="6px"/>
-        <img  id="icon-up" class="arrow-up" src="/desktop/icon-arrow-up.svg" alt="" width="12px" height="6px"/>
-      </div>
-</button>
-    
+          <p id="more-less">More</p> 
+          <div class="arrow-icon" id="arrow-icon">
+            <img id="icon-down" class="arrow-down" src="/desktop/icon-arrow-down.svg" alt="" width="12px" height="6px"/>
+            <img  id="icon-up" class="arrow-up" src="/desktop/icon-arrow-up.svg" alt="" width="12px" height="6px"/>
+          </div>
+      </button>
   </section>
-
-
 </main>
+
+ <footer><p>2023 &copy; Developed by <a href="https://github.com/Nessvah">Sílvia Vanessa</a></p>
+ <p>Challenge from <a href="#">Frontend Mentor</a></p></footer>
+ 
 <section class="hidden more__info" id="more__info">
   <div class="time-year" id="time-container">
     <div class="individual">
@@ -55,7 +58,7 @@ function renderMainPage(){
       <h2 id="day-of-year">295</h2>
     </div>
   </div>
-  
+ 
   <div class="time-year pl-9">
     <div class="individual">
       <h6>Day of the week</h6>
@@ -67,7 +70,7 @@ function renderMainPage(){
     </div>
   </div>
 </section>
-<footer><p>2023 &copy; Developed by <a href="https://github.com/Nessvah">Sílvia Vanessa</a></p></footer
+
 `
 }
 
