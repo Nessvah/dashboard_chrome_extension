@@ -190,6 +190,7 @@ main {
 /* HIDDEN SECTION WITH MORE INFO */
 
 .more__info {
+  height: 45vh;
   display:flex;
   padding: 7.4rem 16.5rem 7.4rem 16.5rem;
 }
@@ -273,8 +274,7 @@ footer {
 
 /* MEDIA QUERIES */
 
-@media only screen and (max-width: 800px) {
-
+@media only screen and (max-width: 1180px){
   h1 {
     font-size: 17.5rem;
   }
@@ -315,9 +315,97 @@ footer {
   .vb-dark, .vb-light {
     border-right: none;
   }
+}
+
+@media only screen and (max-width: 880px) {
+
+  h1 {
+    font-size: 17.5rem;
+    color: pink;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  h4 {
+    font-size: 1.8rem;
+  }
+  h6 {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+  }
+
+  .quote-section, main {
+    padding: 6rem 4rem 0 6.4rem;
+  }
+
+  .quote-content {
+    max-width: 80%;
+  }
+
+  main {
+    margin-top:0;
+    padding-bottom: 6.4rem;
+  }
+
+  .weather-section {
+    flex-direction: column;
+    align-items: start;
+  }
+  .time-abbr{
+    font-size: 3.2rem;
+  }
+
+  .more__info{
+    padding: 11rem 0 6.4rem 6.4rem;
+  }
+
+  .vb-dark, .vb-light {
+    border-right: none;
+  }
+
+  footer {
+    margin-top: auto;
+  }
+}
+
+
+@media only screen and (max-width: 670px){
+h1 {
+  font-size: 12rem;
+  line-height: 1.2;
+}
+  h2 {
+    font-size: 2.4rem;
+  }
+h4 {
+  font-size:1.5rem ;
+}
+h3 {
+  font-size: 2rem;
+}
+
+.quote-section, main {
+  padding: 6rem 4rem 0 4rem;
+}
+
+.btn {
 
 }
 
+.more__info {
+  padding: 6rem 2rem 4rem 4rem;
+}
+
+.pl-9 {
+  padding-left: 4rem;
+}
+footer {
+  flex-direction: column;
+}
+}
+/*77
 @media only screen and (max-width: 450px){
   h1 {
     font-size: 10rem;
@@ -326,9 +414,7 @@ footer {
   h2 {
     font-size: 2rem;
   }
-  h4 {
-    font-size: 1.5rem;
-  }
+
   h5 {
     font-size: 1.2rem;
   }
@@ -384,4 +470,4 @@ footer {
     padding-left: 0;
   }
 
-}
+}*/
