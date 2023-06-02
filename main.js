@@ -45,7 +45,7 @@ function renderMainPage(){
 </main>
 
  <footer><p>2023 &copy; Developed by <a href="https://github.com/Nessvah">Sílvia Vanessa</a></p>
- <p>Challenge from <a href="#">Frontend Mentor</a></p></footer>
+ <p>Challenge from <a href="https://www.frontendmentor.io">Frontend Mentor</a></p></footer>
  
 <section class="hidden more__info" id="more__info">
   <div class="time-year" id="time-container">
