@@ -321,7 +321,7 @@ footer {
 
   h1 {
     font-size: 17.5rem;
-    color: pink;
+
   }
 
   h2 {
@@ -405,10 +405,10 @@ footer {
   flex-direction: column;
 }
 }
-/*77
+
 @media only screen and (max-width: 450px){
   h1 {
-    font-size: 10rem;
+    font-size: 8rem;
     line-height: normal;
   }
   h2 {
@@ -448,8 +448,9 @@ footer {
   }
 
   .more__info {
-    padding: 4rem 2.6rem;
+    padding:2rem;
     flex-direction: column;
+    justify-content: space-evenly;
   }
 
   .time-year{
@@ -466,8 +467,12 @@ footer {
 
   }
 
+  .icon {
+    padding-left: 0;
+  }
+
   .pl-9 {
     padding-left: 0;
   }
 
-}*/
+}
