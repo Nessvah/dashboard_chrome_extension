@@ -35,7 +35,7 @@ function renderMainPage(){
     <div class="weather__location"><h3 id="location"></h3></div>
 </div>
       <button class="btn">
-          <p id="more-less">More</p> 
+          <span id="more-less">More</span> 
           <div class="arrow-icon" id="arrow-icon">
             <img id="icon-down" class="arrow-down" src="/desktop/icon-arrow-down.svg" alt="" width="12p" height="6"/>
             <img  id="icon-up" class="arrow-up" src="/desktop/icon-arrow-up.svg" alt="" width="12" height="6"/>
