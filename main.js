@@ -20,7 +20,7 @@ function renderMainPage(){
          <h5 id="quote"></h5>
         <h5 id="author"></h5>
     </div>
-    <button id="refresh" class="refresh-btn">
+    <button id="refresh" class="refresh-btn" aria-label="refresh">
         <img src="/desktop/icon-refresh.svg" alt="" width="18" height="18"/>
     </button>
 </header>
