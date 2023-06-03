@@ -3,7 +3,7 @@
 function updateUiDayNight(icon, bgImage, currentHour, startDayTime, endDayTime){
     const timeContainer = document.getElementById('time-container');
 
-    document.getElementById('icon').innerHTML = `<img src='${icon}' width="25px" height="25px" alt=""/>`
+    document.getElementById('icon').innerHTML = `<img src='${icon}' width="25" height="25" alt=""/>`
     document.getElementById('app').style.backgroundImage = `url(${bgImage})`;
 
     if (currentHour >= startDayTime && currentHour < endDayTime){

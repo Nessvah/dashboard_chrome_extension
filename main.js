@@ -37,8 +37,8 @@ function renderMainPage(){
       <button class="btn">
           <p id="more-less">More</p> 
           <div class="arrow-icon" id="arrow-icon">
-            <img id="icon-down" class="arrow-down" src="/desktop/icon-arrow-down.svg" alt="" width="12px" height="6px"/>
-            <img  id="icon-up" class="arrow-up" src="/desktop/icon-arrow-up.svg" alt="" width="12px" height="6px"/>
+            <img id="icon-down" class="arrow-down" src="/desktop/icon-arrow-down.svg" alt="" width="12p" height="6"/>
+            <img  id="icon-up" class="arrow-up" src="/desktop/icon-arrow-up.svg" alt="" width="12" height="6"/>
           </div>
       </button>
   </section>
